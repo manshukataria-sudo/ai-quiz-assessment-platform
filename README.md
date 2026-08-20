@@ -160,32 +160,5 @@ Open **http://localhost:5173** in your browser.
 
 ---
 
-## 🎯 Microsoft Technical Consultant Interview Defense Guide
-
-*Use these structured explanations to articulate your architectural decisions with clarity and technical maturity during interviews:*
-
-### Q1: "Why did you choose Google Gemini API for test generation rather than traditional static DB queries?"
-> **Answer**:
-> *"Static question banks suffer from two enterprise pain points: high content creation costs and question leaks. By integrating Gemini 3.5 Flash-Lite, our system dynamically generates unique assessments on any niche or emerging topic (e.g. React 18 Concurrent Mode, OAuth 2.0 PKCE, Microservices) in seconds. Furthermore, the model doesn't just produce questions; it generates contextual pedagogical explanations for each distractor, giving candidates personalized coaching upon test completion."*
-
-### Q2: "How did you ensure the LLM outputs valid data without crashing your application?"
-> **Answer**:
-> *"LLM non-determinism is a known challenge. We solved this at two levels:
-> 1. **Prompt & Schema Enforcement**: We configured Gemini's `responseMimeType: 'application/json'` with a strict JSON schema requiring question text, 4 options, a 0-indexed correct answer, and an explanation.
-> 2. **Multi-Model Failover & Fallback Architecture**: We configured automated retry across high-availability models (`gemini-3.5-flash-lite` ➔ `gemini-3.7-flash`). If network disconnect occurs, our service handles it gracefully without crashing."*
-
-### Q3: "Explain how Authentication and State Management are handled across your stack."
-> **Answer**:
-> *"We implemented stateless JWT authentication. When a user logs in, the Express backend verifies credentials using `bcrypt.compare` against hashed passwords (10 salt rounds) and signs a token with a 7-day expiry. On the React frontend, an `AuthContext` maintains user state and an Axios request interceptor automatically attaches the token (`Authorization: Bearer <token>`) to all outbound API requests. If a 401 response is encountered, the response interceptor automatically invalidates local state and redirects to login."*
-
-### Q4: "How did you design your MongoDB schemas and handle analytics aggregation?"
-> **Answer**:
-> *"We balanced normalization and embedding:
-> - **Quiz Schema**: Questions and options are embedded directly in the `Quiz` document because a quiz's questions are always read together as an atomic unit.
-> - **Attempt Schema**: We embed a snapshot of the candidate's submitted answers alongside the correct answers and points awarded at the time of submission. This preserves historical accuracy even if the original quiz is modified later.
-> - **Analytics**: We use MongoDB query aggregations in `attemptController.js` to compute candidate pass rates, average percentages, and difficulty distributions in $O(N)$ time."*
-
----
-
 ## 📜 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
