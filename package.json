@@ -1,0 +1,29 @@
+{
+  "name": "ai-quiz-assessment-platform",
+  "version": "1.0.0",
+  "description": "Full-stack AI-Powered Quiz & Assessment Platform built with React, Node.js, Express, MongoDB, and Google Gemini API.",
+  "main": "server/src/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "start": "node server/src/server.js",
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "seed": "npm run seed --prefix server",
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "build": "npm run build --prefix client"
+  },
+  "keywords": [
+    "react",
+    "nodejs",
+    "express",
+    "mongodb",
+    "gemini-api",
+    "ai-quiz",
+    "assessment-platform"
+  ],
+  "author": "Manshu Kataria",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
