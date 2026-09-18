@@ -58,19 +58,6 @@ flowchart TD
 
 ---
 
-## 👥 Collaborative Team Roles
-
-This repository reflects collaborative Git Flow development across core team branches:
-
-| Contributor | Role | Core Contributions |
-| :--- | :--- | :--- |
-| **Manshu Kataria** | **Lead Full-Stack & System Architect** | System architecture, data flow modeling, database design, code reviews, and interview defense documentation |
-| **Sumit Salgotra** | **Backend & AI Integration** | Express REST APIs, Mongoose schemas, JWT auth flow, and Gemini API structured prompt engine |
-| **Priya Sharma** | **Frontend Developer & UI/UX** | React SPA, Vite, Tailwind CSS layout, timer component, test player, and analytics dashboard |
-| **Aryan Malhotra** | **Testing, QA & Automation Engineer** | Integration test scripts, validation logic, health checks, and database seeder automation |
-
----
-
 ## 🛠️ Technology Stack Breakdown
 
 * **Frontend**: React.js 18 (Vite), Tailwind CSS, Lucide Icons, React Router DOM v6, Axios with JWT interceptors.
